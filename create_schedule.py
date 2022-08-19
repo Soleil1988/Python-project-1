@@ -1,18 +1,11 @@
-new_task = input('Введите время новой задачи и её название через пробел ')
-task = new_task.split(' ')
-print(task)
+count = int(input('Сколько новых задач вы хотите добавить? Введите число '))
 
-
-
-
-
-
-
-# with open('./schedule.txt', 'a') as schedule:
-#     text: str = f.read()
-#     print(text)
-#     text = text.replace("\t", " ").split("\n")
-#     done_name = []
-#     for lines in text:
-#         done_name.append('\n' + '- ' + lines + ' / labels:"MERA_HardPhones_Auto"')
-#     f.write("".join(done_name))
+while count > 0:
+    day = input('Введите день задачи ')
+    time = input('Введите время задачи ')
+    name = input('Введите название задачи ')
+    day_week = [day]
+    task = [time, name]
+    with open('./schedule.txt', 'a') as schedule:
+        schedule.write(day_week[0] + '\n' + task[0] + ' --- ' + task[1] + '\n')
+    count = count-1
